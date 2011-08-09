@@ -6,5 +6,5 @@ title: Userchat
 Specs Pages
 -----------
 
-[Database](/database.html)
+[Database](database.html)
 

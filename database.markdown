@@ -3,6 +3,8 @@ layout: default
 title: Userchat
 ---
 
+[<< Home](/)
+
 Users
 -----
 Users is only for backend users. "Front-end" chat users are all anonymous.

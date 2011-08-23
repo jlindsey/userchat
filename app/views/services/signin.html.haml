@@ -1,0 +1,15 @@
+.page-header
+  %h1 Sign In
+
+%h2 Choose one of the methods below to log in
+
+.well
+  %a{ :href => '/auth/twitter' }
+    = image_tag "twitter_128.png"
+  %a{ :href => '/auth/google' }
+    = image_tag "google_128.png"
+  %a{ :href => '/auth/yahoo' }
+    = image_tag "yahoo_128.png"
+  %a{ :href => '/auth/myopenid' }
+    = image_tag "openid_128.png"
+

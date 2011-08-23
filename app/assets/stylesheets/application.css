@@ -5,3 +5,21 @@
  *= require_self
  *= require_tree . 
 */
+
+.topbar-wrapper {
+  margin-bottom: 50px;
+}
+
+.footer .container {
+  border-top: 1px solid gray;
+  padding: 5px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+

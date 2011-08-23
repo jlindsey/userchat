@@ -7,6 +7,12 @@
       %ul
 
       %ul.nav.secondary-nav
-        %li
-          = nav_item 'services', 'signin', 'Sign In'
+        - if user_signed_in?
+          %li
+            = link_to current_user.name, user_url(current_user)
+          %li
+            = link_to "Sign Out", signout_url
+        - else
+          %li
+            = nav_item 'services', 'signin', 'Sign In'
 

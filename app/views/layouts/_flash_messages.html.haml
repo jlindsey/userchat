@@ -1,0 +1,4 @@
+- unless flash.empty?
+  - flash.each do |type, msg|
+    %div{ :class => "alert-message #{type}" }
+      %p= msg

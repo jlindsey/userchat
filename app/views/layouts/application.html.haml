@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Userchat</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+!!!
+%html
+  %head
+    %title Userchat
+    = stylesheet_link_tag     "http://twitter.github.com/bootstrap/assets/css/bootstrap-1.0.0.min.css"
+    = stylesheet_link_tag     "application"
+    = javascript_include_tag  "application"
+  %body
+    = render :partial => 'layouts/topbar'
+    .container
+      = render :partial => 'layouts/flash_messages'
+      = yield
 
-<%= yield %>
-
-</body>
-</html>

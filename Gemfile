@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'omniauth', "~> 0.2.6"
 gem 'nokogiri', "~> 1.4.0"
+gem 'cancan', "~> 1.6.5"
 
 group :development do
   gem 'sqlite3', "~> 1.3"

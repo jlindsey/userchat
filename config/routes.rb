@@ -3,6 +3,7 @@ Userchat::Application.routes.draw do
 
   # Users
   match '/account' => 'users#edit'
+  resources :users, :only => [:update]
 
   # Omniauth
   match '/signin' => 'services#signin'

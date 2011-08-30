@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
   def is_role? role
     self.role == role
   end
+
+  def attached_providers
+    self.services.map(&:provider)
+  end
 end

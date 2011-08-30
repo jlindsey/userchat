@@ -1,7 +1,16 @@
 class ServicesController < ApplicationController
   before_filter :authenticate_user!, :except => [:create, :signin, :signup, :newaccount, :failure]
 
-  protect_from_forgery :except => :create
+  protect_from_forgery :except => [:destroy, :create]
+
+  # User is disassociating this service from their account
+  def destroy
+    @service = Service.find_by_id_and_user_id(params[:id], current_user.id)
+    @service.destroy
+
+    flash[:success] = "Removed the #{@service.provider.capitalize} service from your account"
+    redirect_to account_url
+  end
 
   # This handles signing in and adding new auth services to existing accounts
   # Renders a separate view if there's a new User to create.
@@ -35,7 +44,7 @@ class ServicesController < ApplicationController
             flash[:success] = "Your #{@authhash[:provider].capitalize} account has been added."
           end
 
-          redirect_to services_path
+          redirect_to account_url
         else
           if auth
             # signin existing user

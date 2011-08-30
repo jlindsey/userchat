@@ -1,0 +1,40 @@
+.page-header
+  %h1 Account Info
+
+.row
+  .span8.columns
+    %h2 Edit Your Account
+    = form_for @user do |f|
+      .clearfix
+        = f.label :name 
+        .input
+          = f.text_field :name, :class => 'xlarge'
+
+      .clearfix
+        = f.label :email
+        .input
+          = f.text_field :email, :class => 'xlarge'
+          %span.help-block We will never share your Email address
+
+      .actions
+        %button{ :type => 'submit', :class => 'btn large primary' } Save Changes
+
+  .span7.offset1.columns
+    %h2 Current Identiy Services
+    .well.services
+      - @user.services.each do |service|
+        .service-icon
+          .delete-service-button
+            - unless @user.services.count == 1
+              = link_to image_tag("circle_close.png"), service, :method => 'delete'
+          = image_tag "#{service.provider}_64.png"
+    
+    %h2 Attach New Service
+    - providers = Service::CurrentProviders - @user.attached_providers
+    - unless providers.empty?
+      .well.services
+        - providers.each do |provider|
+          = service_icon_link provider, '64'
+
+= javascript_include_tag 'users'
+

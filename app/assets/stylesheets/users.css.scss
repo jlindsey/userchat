@@ -1,3 +1,36 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#api-key, #reset-api-key-message {
+  display: none;
+}
+
+#api-key {
+  margin-bottom: 10px;
+}
+
+#toggle-api-key {
+  margin-bottom: 10px;
+}
+
+#reset-api-key-message {
+  padding-left: 25px;
+}
+
+.well.services {
+  float: left;
+  width: 100%;
+}
+
+.service-icon {
+  position: relative;
+  float: left;
+}
+
+.delete-service-button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+

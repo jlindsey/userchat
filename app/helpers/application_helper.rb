@@ -8,4 +8,12 @@ module ApplicationHelper
       end
     end
   end
+
+  def service_icon_link service_name, size = '128'
+    capture_haml do
+      haml_tag :a, 
+        image_tag("#{service_name =~ /openid/ ? 'openid' : service_name}_#{size}.png"), 
+        { :href => "/auth/#{service_name.to_sym}" }
+    end
+  end
 end

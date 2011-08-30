@@ -20,4 +20,15 @@ describe User do
     @blank_user.should_not respond_to(:foo)
     @blank_user.should_not respond_to(:qux?)
   end
+
+  it "overloads method_missing to allow for role? methods" do
+    @blank_user.role = "manager"
+
+    lambda { @blank_user.manager? }.should_not raise_exception(NoMethodError)
+    lambda { @blank_user.qux? }.should raise_exception(NoMethodError)
+
+    @blank_user.manager?.should == true
+    @blank_user.operator?.should == false
+    @blank_user.owner?.should == false
+  end
 end

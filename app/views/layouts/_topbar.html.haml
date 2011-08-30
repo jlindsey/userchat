@@ -9,7 +9,7 @@
       %ul.nav.secondary-nav
         - if user_signed_in?
           %li
-            = link_to current_user.name, user_url(current_user)
+            = nav_item 'users', 'edit', current_user.name
           %li
             = link_to "Sign Out", signout_url
         - else
